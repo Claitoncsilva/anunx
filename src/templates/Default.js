@@ -6,7 +6,7 @@ const Default = ({ children}) => {
         <>
             <Header />
              { children }
-            <footer>FOOTER</footer>    
+            <footer></footer>    
         </>
     )
 }
