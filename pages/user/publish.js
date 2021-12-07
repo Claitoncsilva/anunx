@@ -1,24 +1,107 @@
-import { Box, Container, TextField, Typography, Select, Button } from '@material-ui/core'
+import { useState  } from 'react'
+
+import {
+    Box,
+    Container,
+    TextField,
+    Typography,
+    Select,
+    Button,
+    IconButton } from '@material-ui/core'
+
+import { useDropzone } from 'react-dropzone'
 import { makeStyles } from '@material-ui/core/styles'
+import { DeleteForever } from '@material-ui/icons'
 
 import TemplateDefault from '../../src/templates/Default'
 
 const useStyles = makeStyles((theme) => ({
- container: {
-     padding: theme.spacing(8, 0, 6)
- },
- boxContainer: {
-    paddingBottom: theme.spacing(3),
- },
- box: {
-     backgroundColor:theme.palette.background.white,
-     padding: theme.spacing(3),
- },
+    mask: {},
+    mainImage: {}, // quando colocamos um objeto vazio e porque esse mask e filho de alguem
+    container: {
+        padding: theme.spacing(8, 0, 6)
+    },
+    boxContainer: {
+        paddingBottom: theme.spacing(3),
+    },
+    box: {
+        backgroundColor:theme.palette.background.white,
+        padding: theme.spacing(3),
+    },
+    thumbsContainer: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        marginTop:15,
+    },
+    dropzone: {
+        display: 'flex',
+        justifyContent:'center',
+        alignItems:'center',
+        textAlign:'center',
+        padding:10,
+        margin: '0 15px 15px 0',
+        width:200,
+        height:150,
+        backgroundColor:theme.palette.background.default,
+        border: '2px dashed black'
+    },
+    thumb: {
+        position:'relative',
+        width:200,
+        height:150,
+        backgroundSize:'cover',
+        backgroundPosition:'center center',
+        margin: '0 15px 15px 0',
 
+        '& $mainImage': {
+          backgroundColor:'blue',
+          padding:'6px 10px',
+          position:'absolute',
+          bottom:0,
+          left:0,
+        },
+
+        '&:hover $mask': {
+            display:'flex',
+        },
+
+        '& $mask' : {
+            display: 'none',
+            justifyContent:'center',
+            alignItems:'center',
+            textAlign:'center',
+            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            width:'100%',
+            height:'100%'
+        }
+    }
 }))
 
 const Publish = () => {
     const classes = useStyles()
+    const [files, setFiles] =useState([])
+
+    const { getRootProps, getInputProps } = useDropzone({
+        acccept: 'image/*',
+        onDrop: (acceptedFile) => {
+          const newFiles = acceptedFile.map(file => {
+              return Object.assign(file, {
+                  preview: URL.createObjectURL(file)
+              })
+          })  
+
+          setFiles([
+              ...files,
+              ...newFiles,
+          ])
+        }
+    })
+
+    const handleRemoveFile = fileName => {
+        const newFileState = files.filter(file => file.name !== fileName)
+        setFiles(newFileState)
+    }
+
     return(
         <TemplateDefault>
             <Container maxWidth="sm" className={classes.container}>
@@ -78,9 +161,45 @@ const Publish = () => {
                     <Typography component="h6" variant="h6"  color="textPrimary">
                          Imagens
                     </Typography>
-                    <Typography component="div" variant="body2" color="textPrimary">
+                    <Typography component="div" variant="body2" color="textPrimary" gutterBottom>
                         A primeira imagem é a foto principal do seu anúncio
                     </Typography>
+                    <Box className={classes.thumbsContainer}>
+                        <Box className={classes.dropzone} {...getRootProps()}>
+                            <input {...getInputProps()}/>
+                            <Typography variant="body2" color="textPrimary">
+                            Clique para adicionar ou arraste a imagem
+                            </Typography>
+                        </Box>
+
+                        {
+                            files.map((file, index) => (
+                                <Box  
+                                key={file.name}
+                                className={classes.thumb}
+                                style={{ backgroundImage : `url(${file.preview})`}}
+                                >
+                                    {
+                                        index=== 0 ?
+                                            <Box className={classes.mainImage}>
+                                                <Typography variant="body" color="secondary">
+                                                    principal
+                                                </Typography>
+                                            </Box>    
+                                        :null
+                                    }
+                                    <Box className={classes.mask}>
+                                        <IconButton color="secondary" onClick={() => handleRemoveFile(file.name)}>
+                                            <DeleteForever  fontSize="large"/>
+                                        </IconButton>
+                                    </Box>
+                                </Box>  
+
+                            ))
+                        }
+                       
+                                                    
+                    </Box>
                 </Box>    
             </Container> 
 
