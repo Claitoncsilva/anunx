@@ -7,6 +7,7 @@ import {
     InputBase,
     Typography, 
     Grid,
+    Box,
     
 } from '@material-ui/core'
 
@@ -25,7 +26,13 @@ const useStyles = makeStyles((theme) => ({
     },
     cardGrid: {
         marginTop:50, 
-    }
+    },
+    box: {
+        backgroundColor:theme.palette.background.white,  
+        padding:theme.spacing(3), 
+        marginBottom:theme.spacing(3), 
+        
+      },
  
   
 }))
@@ -51,39 +58,41 @@ const Home = () => {
             </Container>
 
             <Container maxWidth="lg" className={classes.cardGrid}>
-                <Typography component="h2" variant="h4" align="center" color="textPrimary">
-                    Destaques
-                </Typography>
-                <br />
-                    <Grid container spacing={4}>
-                        <Grid item  xs={12} sm={6} md={4}>
-                            <Card
-                            
-                            image={'https://source.unsplash.com/random'}
-                            title="Produto X"
-                            subtitle="R$ 60,00"
-                            
-                            />
-                        </Grid>
-                        <Grid item  xs={12} sm={6} md={4}>
-                            <Card
+                <Box className={classes.box}>
+                    <Typography component="h2" variant="h4" align="center" color="textPrimary">
+                        Destaques
+                    </Typography>
+                    <br />
+                        <Grid container spacing={4}>
+                            <Grid item  xs={12} sm={6} md={4}>
+                                <Card
                                 
                                 image={'https://source.unsplash.com/random'}
                                 title="Produto X"
                                 subtitle="R$ 60,00"
-                            
-                            />
+                                
+                                />
+                            </Grid>
+                            <Grid item  xs={12} sm={6} md={4}>
+                                <Card
+                                    
+                                    image={'https://source.unsplash.com/random'}
+                                    title="Produto X"
+                                    subtitle="R$ 60,00"
+                                
+                                />
+                            </Grid>
+                            <Grid item  xs={12} sm={6} md={4}>
+                                <Card
+                                
+                                    image={'https://source.unsplash.com/random'}
+                                    title="Produto X"
+                                    subtitle="R$ 60,00"
+                                
+                                />
+                            </Grid>
                         </Grid>
-                        <Grid item  xs={12} sm={6} md={4}>
-                            <Card
-                            
-                                image={'https://source.unsplash.com/random'}
-                                title="Produto X"
-                                subtitle="R$ 60,00"
-                            
-                            />
-                        </Grid>
-                    </Grid>
+                </Box>    
             </Container>    
 
 
