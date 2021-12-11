@@ -14,6 +14,9 @@ import {
     InputLabel,
     OutlinedInput,
     InputAdornment,
+    MenuItem,
+    FormHelperText,
+    
 } from '@material-ui/core'
 
 import { useDropzone } from 'react-dropzone'
@@ -87,6 +90,9 @@ const validationSchema = yup.object().shape({
        .min(6,'Escreva um campo maior')
        .max(100,'Titulo muito grande')
        .required('Campo obrigatório'),
+
+       category: yup.string().required('Campo obrigatório')
+
     
 })
 
@@ -120,13 +126,16 @@ const Publish = () => {
         <TemplateDefault>
             <Formik
              initialValues={{
-                 title:''
+                 title:'',
+                 category:'',
              }}
              validationSchema={validationSchema}
              onSubmit={(values) => {
                 console.log('ok enviou o form',values)
               }}
             >
+
+                
                 {
                     ({
                         values,
@@ -165,32 +174,34 @@ const Publish = () => {
                                 <Typography component="h6" variant="h6"  color="textPrimary">
                                     Categoria
                                 </Typography>
-                                <Select
-                                    native 
-                                    value=""
-                                    fullWidth
-                                    onChange={() => {}}
-                                    inputProps={{
-                                        name:'age'
-                                    }}
-                                >
-                                    <option value="">Selecione</option>
-                                    <option value={1}>Bebê e Crianças</option>
-                                    <option value={2}>Agricultura</option>
-                                    <option value={3}>Moda</option>
-                                    <option value={3}>Carros, Motos e Barcos</option>
-                                    <option value={3}>Serviços</option>
-                                    <option value={3}>Lazer</option>
-                                    <option value={3}>Animais</option>
-                                    <option value={3}>Moveis, Casa e Jardim</option>
-                                    <option value={3}>Imóveis</option>
-                                    <option value={3}>Equipamentos e Ferramentas</option>
-                                    <option value={3}>Celular e Tablets</option>
-                                    <option value={3}>Esporte</option> 
-                                    <option value={3}>Tecnologias</option>  
-                                    <option value={3}>Emprego</option>
-                                    <option value={3}>Outros</option> 
-                                </Select>    
+                                <FormControl error={errors.category} fullWidth>
+                                    <Select
+                                        name="category"
+                                        value={values.category}
+                                        fullWidth
+                                        onChange={handleChange}
+                                        
+                                    >
+                                        <MenuItem value="Bebê e Crianças">Bebê e Crianças</MenuItem>
+                                        <MenuItem value="Agricultura">Agricultura</MenuItem>
+                                        <MenuItem value="Moda">Moda</MenuItem>
+                                        <MenuItem value="Carros, Motos e Barcos">Carros, Motos e Barcos</MenuItem>
+                                        <MenuItem value="Serviços">Serviços</MenuItem>
+                                        <MenuItem value="Lazer">Lazer</MenuItem>
+                                        <MenuItem value="Animais">Animais</MenuItem>
+                                        <MenuItem value="Moveis, Casa e Jardim">Moveis, Casa e Jardim</MenuItem>
+                                        <MenuItem value="Imóveis">Imóveis</MenuItem>
+                                        <MenuItem value="Equipamentos e Ferramentas">Equipamentos e Ferramentas</MenuItem>
+                                        <MenuItem value="Celular e Tablets">Celular e Tablets</MenuItem>
+                                        <MenuItem value="Esporte">Esporte</MenuItem> 
+                                        <MenuItem value="Tecnologias">Tecnologias</MenuItem>  
+                                        <MenuItem value="Emprego">Emprego</MenuItem>
+                                        <MenuItem value="Outros">Outros</MenuItem> 
+                                    </Select>
+                                    <FormHelperText>
+                                        {errors.category}
+                                    </FormHelperText>
+                                </FormControl>        
                                 </Box>
                             </Container>  
                             
