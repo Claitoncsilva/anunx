@@ -54,7 +54,7 @@ export default function ButtonAppBar() {
               Anux
             </Typography>
             <Link href="/user/publish" passHref>
-              <Button color="inherit" variant="outline">
+              <Button color="inherit" variant="outlined">
                 Anunciar e Vender
               </Button>
             </Link>  
@@ -65,7 +65,7 @@ export default function ButtonAppBar() {
                 : <AccountCircle />  
               }
               <Typography variant="subtitle2" color="secondary" className={classes.userName}>
-                Claiton Silva
+               
               </Typography>  
             </IconButton>  
 
