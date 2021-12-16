@@ -1,34 +1,53 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1>
+    <img src="public/anunx.png">
+</h1>
 
-## Getting Started
+<h1 align="center">Anunx</h1>
 
-First, run the development server:
+<p align="center">
+The project is an e-commerce created with the intention of putting into practice some tools
+</p>
 
-```bash
-npm run dev
-# or
-yarn dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Features
 
-## Learn More
+- [ ] Home
+- [ ] List
+- [ ] Product 
+- [ ] Publish
+- [ ] Dashboard
+- [ ] Signup
+- [ ] Signin
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### 🛠 Technologies
 
-## Deploy on Vercel
+The following tools were used in the construction of the project:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [JavaScript](https://www.javascript.com/)
+- [Node.js](https://nodejs.org/en/)
+- [React](https://pt-br.reactjs.org/)
+- [Next.js](https://nextjs.org/)
+- [MATERIAL-UI](https://v4.mui.com/)
+- [React-dropzone](https://react-dropzone.js.org/)
+- [React-material-ui-carousel](https://learus.github.io/react-material-ui-carousel/)
+- [Formik](https://formik.org/)
+- [Yup](https://github.com/jquense/yup)
+- [Axios](https://axios-http.com/docs/intro)
+- [Bcrypt](https://www.npmjs.com/package/bcrypt)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+### Autor
+---
+
+
+ <img style="border-radius:10%;" src="public/self.jpg" width="80px;"  alt=""/>
+ <br />
+ <sub><b>Claiton Silva</b></sub></a> 
+
+

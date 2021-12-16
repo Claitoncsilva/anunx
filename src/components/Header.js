@@ -51,7 +51,7 @@ export default function ButtonAppBar() {
         <Container maxWidth="lg">
           <Toolbar>
             <Typography variant="h6" className={classes.title}>
-              Anux
+              Anunx
             </Typography>
             <Link href="/user/publish" passHref>
               <Button color="inherit" variant="outlined">
