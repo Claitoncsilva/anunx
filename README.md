@@ -47,7 +47,11 @@ The following tools were used in the construction of the project:
 
 
  <img style="border-radius:10%;" src="public/self.jpg" width="80px;"  alt=""/>
- <br />
- <sub><b>Claiton Silva</b></sub></a> 
 
+ <sub><b>Claiton Silva</b></sub></a> 
+ <br />
+<sub><b>email: claiton1306@gmail.com</b></sub></a> 
+<br />
+
+ - [Linkedin](https://www.linkedin.com/in/claiton-silva-54928a161/)
 
