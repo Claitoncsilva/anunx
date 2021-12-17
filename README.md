@@ -39,6 +39,7 @@ The following tools were used in the construction of the project:
 - [Yup](https://github.com/jquense/yup)
 - [Axios](https://axios-http.com/docs/intro)
 - [Bcrypt](https://www.npmjs.com/package/bcrypt)
+- [next-connect](https://www.npmjs.com/package/next-connect)
 
 
 
