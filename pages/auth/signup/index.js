@@ -1,5 +1,6 @@
 import { Formik } from 'formik'
 import axios from 'axios'
+import { useRouter, userRouter } from 'next/router'
 
 import {
     Box,
@@ -16,18 +17,27 @@ import {
 
 import TemplateDefault from '../../../src/templates/Default'
 import {initialValues,validationSchema} from './formValues'
+import  useToasty  from '../../../src/contexts/Toasty'
 
 import useStyles from './styles'
 
 
 const Signup = () => {
     const classes = useStyles()
+    const router = useRouter()
+    const { setToasty } = useToasty()
 
     const handleFormSubmit = async values => {
         const response = await  axios.post('/api/users', values)
         
         if(response.data.success){
-          console.log('dados cadastrados com sucesso!')      
+          setToasty({
+              open:true,
+              severity:'success',
+              text:'Cadastro realizado com sucesso!'
+          })  
+          
+          router.push('/auth/signin')
         }
     }
 

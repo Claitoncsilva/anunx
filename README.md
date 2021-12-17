@@ -10,7 +10,7 @@ The project is an e-commerce created with the intention of putting into practice
 
 
 
-
+<img src="https://img.shields.io/static/v1?label=build&message=passing&color=gree&style=for-the-badge&logo=ghost"/>
 
 ### Features
 
