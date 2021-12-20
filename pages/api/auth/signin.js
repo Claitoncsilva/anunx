@@ -7,6 +7,6 @@ const route = nextConnect()
 
 
 
-route.post(post)
+route.post(post) 
  
 export default route

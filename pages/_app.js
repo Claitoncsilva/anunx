@@ -7,11 +7,18 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { ToastyProvider } from '../src/contexts/Toasty';
 import theme from '../src/theme';
 
-export default function MyApp(props) {
-  const { Component,  pageProps: { session, ...pageProps } } = props;
+//export default function MyApp(props) {
+ // const { Component,  pageProps: { session, ...pageProps } } = props;
 
 
 
+
+  export default function MyApp({
+    Component, 
+    pageProps: { session, ...pageProps }
+  }) {
+
+   
  
 
   return (

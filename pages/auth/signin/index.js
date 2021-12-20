@@ -3,6 +3,7 @@ import { Formik } from 'formik'
 import axios from 'axios'
 import { useRouter, userRouter } from 'next/router'
 import { signIn, useSession } from 'next-auth/react'
+
  
 import {
     Box,
@@ -29,10 +30,11 @@ const Signin = () => {
     const classes = useStyles()
     const router = useRouter()
     const { setToasty } = useToasty()
-   // const [ session ] = useSession()
+    //const [ session ] = useSession()
+    const { data: session } = useSession()
 
 
-    //console.log(session)
+    console.log(session)
 
     const handleGoogleLogin = () => {
         signIn('google', {

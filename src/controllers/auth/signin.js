@@ -29,3 +29,9 @@ const post = async (req, res) => {
 
     return res.status(401).json({ success: false, message: 'invalid'})
 }    
+
+
+export {
+    post,
+  
+}
