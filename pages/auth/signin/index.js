@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { Formik } from 'formik'
 import axios from 'axios'
 import { useRouter, userRouter } from 'next/router'
@@ -28,10 +29,16 @@ const Signin = () => {
     const classes = useStyles()
     const router = useRouter()
     const { setToasty } = useToasty()
-    const [ session ] = useSession()
+   // const [ session ] = useSession()
 
 
-    console.log(session)
+    //console.log(session)
+
+    const handleGoogleLogin = () => {
+        signIn('google', {
+           callbackUrl:'http://localhost:3000/user/dashboard'    
+        })
+    }    
 
     const handleFormSubmit = async values => {
         signIn('credentials', {
@@ -42,13 +49,46 @@ const Signin = () => {
         
     }
 
+                   
     return(
         <TemplateDefault>
-            <Formik
-             initialValues={initialValues}
-             validationSchema={validationSchema}
-             onSubmit={handleFormSubmit}
-            >
+            <Container maxWidth="sm"  component="main" className={classes.container}>
+                <Typography component="h1" variant="h2" align="center" color="textPrimary">
+                    Entre na sua conta
+                </Typography>
+            </Container> 
+            
+         
+                                      
+          <Container maxWidth="md" >
+            <Box className={classes.box}>
+                <Box display="flex" justifyContent="center">
+                    <Button
+                        variant = "contained"
+                        color="primary"
+                        startIcon= {
+                            <Image
+                            src="/images/logo.png"
+                            width={20}
+                            height={20}
+                            alt="Login com Google"
+                            />
+                        }
+                        onClick={handleGoogleLogin}
+                    >
+                       Entrar com Google
+                    </Button> 
+                </Box>
+                <Box className={classes.orSeparator}>
+                    <span>ou</span>
+                </Box>
+
+
+                <Formik
+                initialValues={initialValues}
+                validationSchema={validationSchema}
+                onSubmit={handleFormSubmit}
+                >
 
                 
                 {
@@ -65,25 +105,16 @@ const Signin = () => {
 
                             return(
                                 <form onSubmit={handleSubmit}>  
-                                  
-                                    <Container maxWidth="sm" >
-                                        <Typography component="h1" variant="h2" align="center" color="textPrimary">
-                                            Acesse a sua conta
-                                        </Typography>
-                                       
-                                    </Container>  
                                     {
                                         router.query.i === '1'
-                                        ? (
-                                            <Alert severity='error' className = {classes.errorMessage}>
-                                                Usuário ou senha inválidos
-                                            </Alert>
-                                           )
-                                        : null   
-                                    }  
-                                    <br/>   
-                                    <Container maxWidth="md" className={classes.boxContainer} >
-                                        <Box className={classes.box}>
+                                         ? (
+                                             <Alert severity="error" className={classes.errorMessage}>
+                                                 Usuario ou senha Invalidos
+                                             </Alert>
+                                         )
+                                         : null
+                                    }
+                                  
                                                                     
                                             <FormControl error={errors.email && touched.email} fullWidth>
                                                 <InputLabel className={classes.inputLabel}>E-mail</InputLabel>   
@@ -135,8 +166,8 @@ const Signin = () => {
                                             
                                             <br/><br/>
                                             
-                                        </Box>    
-                                    </Container>      
+                                          
+                                      
                 
                           
                         </form>           
@@ -144,7 +175,9 @@ const Signin = () => {
                   } 
                 }
              
-            </Formik>
+                </Formik>
+             </Box> 
+          </Container>    
         </TemplateDefault>
     )
 }
