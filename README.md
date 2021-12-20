@@ -1,12 +1,12 @@
-<h1>
-    <img src="public/anunx.png">
-</h1>
 
 <h1 align="center">Anunx</h1>
 
 <p align="center">
 The project is an e-commerce created with the intention of putting into practice some tools
 </p>
+<h1>
+    <img src="public/anunx.png">
+</h1>
 
 
 
@@ -39,7 +39,9 @@ The following tools were used in the construction of the project:
 - [Yup](https://github.com/jquense/yup)
 - [Axios](https://axios-http.com/docs/intro)
 - [Bcrypt](https://www.npmjs.com/package/bcrypt)
-- [next-connect](https://www.npmjs.com/package/next-connect)
+- [Next-connect](https://www.npmjs.com/package/next-connect)
+- [Next-auth](https://next-auth.js.org/)
+
 
 
 

@@ -1,7 +1,8 @@
 import { Formik } from 'formik'
 import axios from 'axios'
 import { useRouter, userRouter } from 'next/router'
-
+import { signIn, useSession } from 'next-auth/react'
+ 
 import {
     Box,
     Container,
@@ -20,14 +21,24 @@ import {initialValues,validationSchema} from './formValues'
 import  useToasty  from '../../../src/contexts/Toasty'
 
 import useStyles from './styles'
+import { Alert } from '@material-ui/lab'
 
 
 const Signin = () => {
     const classes = useStyles()
     const router = useRouter()
     const { setToasty } = useToasty()
+    const [ session ] = useSession()
+
+
+    console.log(session)
 
     const handleFormSubmit = async values => {
+        signIn('credentials', {
+            email: values.email,
+            password: values.password,
+            callbackUrl: 'http://localhost:3000/user/dashboard'
+        })
         
     }
 
@@ -54,12 +65,22 @@ const Signin = () => {
 
                             return(
                                 <form onSubmit={handleSubmit}>  
+                                  
                                     <Container maxWidth="sm" >
                                         <Typography component="h1" variant="h2" align="center" color="textPrimary">
                                             Acesse a sua conta
                                         </Typography>
                                        
-                                    </Container>    
+                                    </Container>  
+                                    {
+                                        router.query.i === '1'
+                                        ? (
+                                            <Alert severity='error' className = {classes.errorMessage}>
+                                                Usuário ou senha inválidos
+                                            </Alert>
+                                           )
+                                        : null   
+                                    }  
                                     <br/>   
                                     <Container maxWidth="md" className={classes.boxContainer} >
                                         <Box className={classes.box}>
