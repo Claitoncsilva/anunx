@@ -41,6 +41,8 @@ The following tools were used in the construction of the project:
 - [Bcrypt](https://www.npmjs.com/package/bcrypt)
 - [Next-connect](https://www.npmjs.com/package/next-connect)
 - [Next-auth](https://next-auth.js.org/)
+- [Formidable-serverless](https://www.npmjs.com/package/formidable-serverless)
+
 
 
 
