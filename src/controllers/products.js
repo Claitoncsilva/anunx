@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import formidable from 'formidable-serverless'
-import ProductsModel from '../models/products'
+import ProductsModel from '../models/Products'
 import dbConnect from '../utils/dbConnect'
 
 const post = async (req, res) => {
@@ -68,7 +68,7 @@ const post = async (req, res) => {
             description,
             price,
             user : {
-                id: userId,    
+                id:userId,    
                 name,
                 email,
                 phone,
@@ -89,6 +89,21 @@ const post = async (req, res) => {
     })
 }
 
+const remove = async (req, res) => {
+    await dbConnect()
+
+    const id = req.body.id
+
+    const deleted = await ProductsModel.findOneAndDelete({ _id: id })
+
+    if(deleted) {
+        return res.status(200).json({ success: true})
+    } else {
+        return res.status(500).json({ success: false})
+    }
+}
+
 export {
-    post
+    post,
+    remove
 }

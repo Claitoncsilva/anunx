@@ -67,27 +67,27 @@ const Home = () => {
                             <Grid item  xs={12} sm={6} md={4}>
                                 <Card
                                 
-                                image={'https://source.unsplash.com/random'}
-                                title="Produto X"
-                                subtitle="R$ 60,00"
+                                image="/images/mac.jpg"
+                                title="Apple MacBook Air 13"
+                                subtitle="499.00"
                                 
                                 />
                             </Grid>
                             <Grid item  xs={12} sm={6} md={4}>
                                 <Card
                                     
-                                    image={'https://source.unsplash.com/random'}
-                                    title="Produto X"
-                                    subtitle="R$ 60,00"
+                                    image="/images/Citroën-C-Elysée-1.jpg"
+                                    title="Citroen C Elysée"
+                                    subtitle="16.900,00"
                                 
                                 />
                             </Grid>
                             <Grid item  xs={12} sm={6} md={4}>
                                 <Card
                                 
-                                    image={'https://source.unsplash.com/random'}
-                                    title="Produto X"
-                                    subtitle="R$ 60,00"
+                                    image="/images/iphone_12_pro_max_lineup_screen__wwen.png"
+                                    title="IPhone 12 Pro Max"
+                                    subtitle="1.200,00"
                                 
                                 />
                             </Grid>

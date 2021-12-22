@@ -30,10 +30,9 @@ const schema = new mongoose.Schema({
         image: String,
     },
     files: {
-        type: [filesSchema],
-        default: undefined,
+        type:[filesSchema],
+        default:undefined,
     }
 })
 
 export default mongoose.models.users || mongoose.model('products', schema)
-
