@@ -159,7 +159,7 @@ export async function getServerSideProps ({ req }) {
   const products = await ProductsModel.find({ 'user.id': session.userId }) 
 
   return {
-    propos: {
+    props: {
       products: JSON.parse(JSON.stringify(products)),
     }
   }

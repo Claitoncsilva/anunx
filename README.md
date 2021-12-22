@@ -42,6 +42,9 @@ The following tools were used in the construction of the project:
 - [Next-connect](https://www.npmjs.com/package/next-connect)
 - [Next-auth](https://next-auth.js.org/)
 - [Formidable-serverless](https://www.npmjs.com/package/formidable-serverless)
+- [Slugify](https://www.npmjs.com/package/slugify)
+
+
 
 
 

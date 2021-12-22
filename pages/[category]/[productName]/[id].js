@@ -124,7 +124,7 @@ export async function getServerSideProps ({ query }) {
     const product = await ProductsModel.findOne({_id: id }) 
   
     return {
-      propos: {
+      props: {
         product: JSON.parse(JSON.stringify(product)),
       }
     }
