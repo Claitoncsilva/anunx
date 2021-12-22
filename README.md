@@ -5,7 +5,7 @@
 The project is an e-commerce created with the intention of putting into practice some tools
 </p>
 <h1>
-    <video src="public/anunx.mp4">
+    <img src="public/anunx.gif">
 </h1>
 
 
