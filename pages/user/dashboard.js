@@ -18,7 +18,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import { getSession } from 'next-auth/react'
 
 import dbConnect from '../../src/utils/dbConnect'
-import ProductsModel from '../../src/models/Products'
+import ProductsModel from '../../src/models/products'
 import TemplateDefault from '../../src/templates/Default'
 import Card from '../../src/components/Card'
 import { formatCurrency } from '../../src/utils/currency'
@@ -156,7 +156,7 @@ export async function getServerSideProps ({ req }) {
   const session = await getSession( { req })
   await dbConnect()
 
-  const products = await  ProductsModel.find({ 'user.id': session.userId }) 
+  const products = await ProductsModel.find({ 'user.id': session.userId }) 
 
   return {
     propos: {
