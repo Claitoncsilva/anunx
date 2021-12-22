@@ -52,7 +52,7 @@ const Home = ({ products }) => {
 
     const handleSubmitSearch = () => {
         router.push({
-            pathname: `/search/${search}`,
+            pathname:`/search/${search}`,
         })
     }
 
