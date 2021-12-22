@@ -5,7 +5,7 @@
 The project is an e-commerce created with the intention of putting into practice some tools
 </p>
 <h1>
-    <img src="public/anunx.mp4">
+    <video src="public/anunx.mp4">
 </h1>
 
 
@@ -17,7 +17,7 @@ The project is an e-commerce created with the intention of putting into practice
 - [ ] Home
 - [ ] List
 - [ ] Product 
-- [ ] Publish
+- [ ] Publishgit
 - [ ] Dashboard
 - [ ] Signup
 - [ ] Signin
